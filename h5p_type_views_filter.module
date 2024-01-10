@@ -4,7 +4,7 @@
  * Implements form_alter().
  */
 
- function viewsfilter_libraryname_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+ function h5p_type_views_filter_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
     
   if ($form['#id'] == 'views-exposed-form-h5p-library-page-1') {
   
