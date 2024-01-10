@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * Implements form_alter().
+ */
+
+ function viewsfilter_libraryname_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    
+  if ($form['#id'] == 'views-exposed-form-h5p-library-page-1') {
+  
+      $options = [''];
+
+      $database = \Drupal::database();
+      $sql = "SELECT title FROM {h5p_libraries} WHERE runnable = 1";
+      $result = $database->query($sql);
+
+      $arr = array();
+
+      $disallowed = array(
+        "Branching Scenario (beta)",
+        "appear.in for Chat and Talk",
+        "Twitter User Feed"
+      );
+
+      if ($result) {
+        foreach($result as $key => $value) {
+          $title = $value->title;
+          if (!in_array($title, $disallowed)) {
+            array_push($arr,$title);
+          }
+     
+        }
+      }
+     
+      sort($arr);
+
+      if ($arr) {
+        foreach($arr as $name) {
+          $options[$name] = $name;
+        }
+      }
+
+      if (isset($form['type'])) {
+        $form['type']['#type'] = 'checkboxes';
+        $form['type']['#options'] = $options;
+        $form['type']['#size'] = null;
+        $form['type']['#multiple'] = TRUE;
+        
+      }
+  }
+}

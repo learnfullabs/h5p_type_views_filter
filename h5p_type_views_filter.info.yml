@@ -1,0 +1,7 @@
+name: H5P Type Views Filter
+description: Converts textfield to select field for H5P Type Name. Used in Learnful Studio
+type: module
+package: h5p
+core_version_requirement: ^8 || ^9 || ^10
+dependencies:
+  - h5p:h5p
