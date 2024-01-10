@@ -1,0 +1,11 @@
+{
+    "name": "learnfullabs/h5p_type_views_filter",
+    "type": "drupal-custom-module",
+    "description": "Converts textfield to select field for H5P Type Name. Used in Learnful Studio.",
+    "homepage": "https://github.com/learnfullabs/h5p_type_views_filter",
+    "license": "GPL-3.0+",
+    "require": {
+      "h5p/h5p": "^2"
+    }
+  }
+  
